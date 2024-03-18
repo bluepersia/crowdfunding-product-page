@@ -6,9 +6,11 @@ import styles from './index.module.css';
 export default function Main(): JSX.Element {
   return (
     <main className={styles.main}>
-      <CallToAction />
-      <Backings />
-      <Project />
+      <div className={styles.mainContent}>
+        <CallToAction />
+        <Backings />
+        <Project />
+      </div>
     </main>
   );
 }

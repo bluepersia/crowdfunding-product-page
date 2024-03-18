@@ -1,0 +1,10 @@
+
+.main {
+    padding: 0 6.4% 4.8em;
+    background-color: rgb(221, 221, 221);
+}
+
+.mainContent {
+    position: relative;
+    top: -3.625em;
+}
