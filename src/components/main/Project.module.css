@@ -1,0 +1,61 @@
+@import '../../App.css';
+.project {
+    border-radius: 8px;
+    background-color: white;
+    padding: 2.75em 8% 3.125rem;
+}
+
+
+.products {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.product {
+    border: solid 1px rgba(0,0,0,15%);
+    border-radius: 8px;
+    padding: 1.4em 8.5%;
+}
+
+.productName {
+    margin-bottom: .4em;
+}
+
+.productPledge {
+    color: var(--Moderatecyan);
+    margin-top: 0;
+}
+
+.productBody {
+    color: var(--Darkgray);
+}
+
+.productCount {
+    color: var(--Darkgray);
+    display: flex;
+    align-items: center;
+}
+
+.productCount span {
+    font-size: 2rem;
+    font-weight: bold;
+    color:black;
+    margin-right: .2em;
+}
+
+.btnSelect {
+    composes: btn from '../../App.css';
+}
+
+
+.product.disabled {
+    opacity: 50%;
+}
+
+.product.disabled .btnSelect 
+{
+    background-color: gray;
+}

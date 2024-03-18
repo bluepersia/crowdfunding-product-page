@@ -39,6 +39,46 @@ export default function Project(): JSX.Element {
             </button>
           </div>
         </li>
+
+        <li className={styles.product}>
+          <div className={styles.productTop}>
+            <h3 className={styles.productName}>Black Edition Stand</h3>
+            <p className={styles.productPledge}>Pledge $75 or more</p>
+          </div>
+          <p className={styles.productBody}>
+            You get a Black Special Edition computer stand and a personal thank
+            you. You’ll be added to our Backer member list. Shipping is
+            included.
+          </p>
+          <div className={styles.productBottom}>
+            <p className={styles.productCount}>
+              <span>64</span> left
+            </p>
+            <button className={styles.btnSelect + ' btn-bluegreen'}>
+              Select Reward
+            </button>
+          </div>
+        </li>
+
+        <li className={styles.product + ' ' + styles.disabled}>
+          <div className={styles.productTop}>
+            <h3 className={styles.productName}>Mahogany Special Edition</h3>
+            <p className={styles.productPledge}>Pledge $200 or more</p>
+          </div>
+          <p className={styles.productBody}>
+            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
+            personal thank you. You’ll be added to our Backer member list.
+            Shipping is included.
+          </p>
+          <div className={styles.productBottom}>
+            <p className={styles.productCount}>
+              <span>0</span> left
+            </p>
+            <button className={styles.btnSelect + ' btn-bluegreen'}>
+              Out of Stock
+            </button>
+          </div>
+        </li>
       </ul>
     </div>
   );
