@@ -1,0 +1,87 @@
+@import '../../App.css';
+.cta 
+{
+    border-radius: 8px;
+    background-color: white;
+    padding: 0 6% 2.5em;
+    text-align: center;
+    position: relative;
+}
+
+.logo 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-50%);
+}
+
+.subtitle {
+    color: var(--Darkgray);
+}
+
+
+.cta_btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+
+.btnBack {
+    composes: btn from '../../App.css';
+    width: 72%;
+    max-width: 202px;
+    border-radius: 30px;
+}
+
+.btnBookmarkWrapper {
+    margin-left: auto;
+}
+.btnBookmark {
+    display: none;
+}
+.imgBookmark circle{
+    transition: fill 300ms;
+}
+.imgBookmark path
+{
+    transition: fill 300ms;
+}
+.btnBookmarkWrapper.bookmarked .imgBookmark circle
+{
+    fill: var(--Darkcyan);
+}
+.btnBookmarkWrapper.bookmarked .imgBookmark path
+{
+    fill: white;
+}
+
+.btnBookmarkWrapper.bookmarked .btnBookmark {
+    color: var(--Darkcyan);
+}
+
+@media (min-width: 786px)
+{
+
+    .cta_btns {
+        margin-top: 2.6em;
+    }
+
+    .btnBookmarkWrapper {
+        display: flex;
+        align-items: center;
+    }
+    .imgBookmark {
+        margin-right: -3.56em;
+        z-index: 1;
+    }
+
+    .btnBookmark {
+        display: inherit;
+        composes: btn from '../../App.css';
+        padding: 1.1em;
+        padding-left: 4.3em;
+        z-index: 0;
+    }
+}
