@@ -1,0 +1,40 @@
+.header {
+    background-image: url(../images/image-hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.87em 6.6% 15.56em;
+}
+
+.btnMenu {
+    transition: transform 300ms;
+    cursor: pointer;
+}
+
+.btnMenu:hover {
+    transform: scale(1.2);
+}
+
+.navlist {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    gap: 1.875em;
+}
+
+.navlink {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+@media (min-width: 750px)
+{
+    .header {
+        background-image: url(../images/image-hero-desktop.jpg);
+        padding-bottom: 20.75em;
+    }
+}
