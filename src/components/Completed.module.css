@@ -1,0 +1,47 @@
+.overlay {
+    position: fixed;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,50%);
+    z-index: 3;
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 300ms;
+}
+
+.overlay.open {
+    opacity: 100%;
+    pointer-events: all;
+}
+
+
+.window {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: auto;
+    margin-right: auto;
+    width: 88%;
+    max-width: 543px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 3em 3.3em;
+}
+
+.imgCheck {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body {
+    color: var(--Darkgray);
+}
+
+.btnGotIt {
+    composes: btn from '../App.css';
+    margin-top: 2.1em;
+}
