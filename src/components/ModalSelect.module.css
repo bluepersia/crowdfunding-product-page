@@ -1,0 +1,165 @@
+@import '../App.css';
+.overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 50%);
+    padding: 7.4em 0;
+    z-index: 2;
+    overflow-y: scroll;
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 300ms;
+}
+
+.overlay.open {
+    opacity: 100%;
+    pointer-events: all;
+}
+
+.modal {
+    background-color: white;;
+    width: 87%;
+    max-width: 730px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5em 3.1em;
+    border-radius: 8px;
+}
+
+.header {
+    margin-bottom: 1.875em;
+}
+
+
+
+
+.subtitle, .pledgeBody{ 
+    color: var(--Darkgray);;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+}
+
+.pledge {
+    border: solid 1px rgba(0,0,0, 20%);
+    border-radius: 8px;
+    padding: 2.125em 9%;
+}
+
+    
+.pledge.disabled  {
+    pointer-events: none;
+    opacity: 50%;
+}
+
+.pledgeAmount {
+    color: var(--Moderatecyan);
+}
+
+
+
+.pledgeEnter{
+    display: none;
+    padding-top: 2em;
+    border-top: solid 1px rgba(0,0,0, 20%);
+}
+
+
+.pledge.selected .pledgeEnter {
+    display: inherit;
+}
+
+.pledgeEnterBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputPledgeWrapper {
+    width: 42%;
+    position: relative;
+}
+.inputPledge {
+    composes: btn from '../App.css';
+    border: solid 1px rgba(0,0,0, 20%);
+    padding-left: 3em;
+    position: relative;
+    width: 100%;
+}
+.inputPledgeWrapper::after 
+{
+    content: '$';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2em;
+}
+
+.btnContinue {
+    composes: btn from '../App.css';
+    margin-left: auto;
+}
+
+
+@media (min-width: 786px)
+{
+
+    .header {
+        margin-bottom: 2.5em;
+    }
+
+    .pledge {
+        display: grid;
+        grid-template-columns: 30px minmax(auto, 190px) minmax(auto, 160px) min-content;
+        grid-template-rows: auto auto auto;
+        column-gap: .5em;
+    }
+
+    .pledgeRadio {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+       accent-color: var(--Moderatecyan)
+    }
+
+    .pledgeTitle {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .pledgeAmount {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+
+    .pledgeCount {
+        margin-left: auto;
+        grid-column: 4 / -1;
+        grid-row: 1 / 2;
+        color: var(--Darkgray);
+        display: flex;
+        align-items: center;
+    }
+    .pledgeCount span {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-right: .4em;
+        color: black;
+    }
+
+    .pledgeBody {
+        grid-column: 2 / -1;
+        grid-row: 2 / 3;
+    }
+
+    .pledgeEnter {
+        grid-column: 1 / -1;
+        grid-row: 3 / -1;
+    }
+}
