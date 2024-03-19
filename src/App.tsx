@@ -5,6 +5,7 @@ import Main from './components/main';
 import './Post.css';
 import ModalSelect from './components/ModalSelect';
 import Menu from './components/Menu';
+import Completed from './components/Completed';
 
 function App() {
   const [pledgeSelector, setPledgeSelector] = useState<number>(-1);
@@ -39,6 +40,7 @@ function App() {
         setIsCompleted={setIsCompleted}
       />
       <Menu isMenuOpen={isMenuOpen} />
+      <Completed isCompleted={isCompleted} setIsCompleted={setIsCompleted} />
     </>
   );
 }
