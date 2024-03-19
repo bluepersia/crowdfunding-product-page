@@ -17,18 +17,16 @@ function App() {
   }, [pledgeSelector]);
 
   useEffect(() => {
-    document.addEventListener('click', handleBodyClick);
-
-    return () => document.removeEventListener('click', handleBodyClick);
-  }, []);
-
-  useEffect(() => {
     if (!isModalOpen) setPledgeSelector(-1);
   }, [isModalOpen]);
 
-  function handleBodyClick() {
-    setIsModalOpen(false);
-  }
+  useEffect(() => {
+    if (isModalOpen) setIsCompleted(false);
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    if (isCompleted) setIsModalOpen(false);
+  }, [isCompleted]);
 
   return (
     <>
@@ -36,6 +34,7 @@ function App() {
       <Main setPledgeSelector={setPledgeSelector} />
       <ModalSelect
         isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
         pledgeSelector={pledgeSelector}
         setIsCompleted={setIsCompleted}
       />

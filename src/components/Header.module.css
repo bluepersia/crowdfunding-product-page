@@ -33,6 +33,25 @@
 .navlink {
     color: white;
     text-decoration: none;
+    position: relative;
+}
+
+.navlink::after
+{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    transition: width 300ms;
+}
+
+.navlink:hover::after
+{
+    width: 100%;
 }
 
 
