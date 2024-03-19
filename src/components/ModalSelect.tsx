@@ -253,7 +253,7 @@ export default function ModalSelect({
                 list. Shipping is included.
               </p>
               <p className={styles.pledgeCount}>
-                <span>64</span>left
+                <span>0</span>left
               </p>
               <div className={styles.pledgeEnter}>
                 <p className={styles.pledgeEnterText}>Enter your pledge</p>
