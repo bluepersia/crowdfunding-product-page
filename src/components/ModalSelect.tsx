@@ -1,11 +1,13 @@
 import {
   ChangeEvent,
   Dispatch,
+  FormEvent,
   SetStateAction,
   useEffect,
   useState,
 } from 'react';
 import styles from './ModalSelect.module.css';
+import imgClose from '../images/icon-close-modal.svg';
 
 const BAMBOO_MIN = 25;
 const BLACK_MIN = 75;
@@ -22,10 +24,12 @@ export default function ModalSelect({
   pledgeSelector,
   setIsCompleted,
   isModalOpen,
+  setIsModalOpen,
 }: {
   pledgeSelector: number;
   setIsCompleted: Dispatch<SetStateAction<boolean>>;
   isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }): JSX.Element {
   const [formData, setFormData] = useState<FormData>({
     pledgeSelected: 0,
@@ -49,25 +53,48 @@ export default function ModalSelect({
     setFormData((formData) => ({ ...formData, [name]: value }));
   }
 
+  function handleFormSubmit(e: FormEvent): void {
+    console.log('yes');
+    e.stopPropagation();
+    e.preventDefault();
+
+    setIsCompleted(true);
+  }
+
+  function setPledgeSelected(val: number): void {
+    setFormData((formData) => ({ ...formData, pledgeSelected: val }));
+  }
+
   return (
     <div className={styles.overlay + ' ' + (isModalOpen && styles.open)}>
       <div className={styles.modal}>
         <header className={styles.header}>
-          <h2 className={styles.title}>Back this project</h2>
-          <p className={styles.subtitle}>
-            Want to support us in bringing Mastercraft Bamboo Monitor Riser out
-            in this world?
-          </p>
+          <div className={styles.headerText}>
+            <h2 className={styles.title}>Back this project</h2>
+            <p className={styles.subtitle}>
+              Want to support us in bringing Mastercraft Bamboo Monitor Riser
+              out in this world?
+            </p>
+          </div>
+          <img
+            onClick={() => setIsModalOpen(false)}
+            src={imgClose}
+            className={styles.btnClose}
+          />
         </header>
 
         <main className={styles.main}>
-          <form className={styles.form}>
+          <form onSubmit={handleFormSubmit} className={styles.form}>
             <div
               className={
                 styles.pledge +
                 ' ' +
                 (formData.pledgeSelected == 0 && styles.selected)
               }
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setPledgeSelected(0);
+              }}
             >
               <input
                 className={styles.pledgeRadio}
@@ -104,6 +131,10 @@ export default function ModalSelect({
                 ' ' +
                 (formData.pledgeSelected == 1 && styles.selected)
               }
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setPledgeSelected(1);
+              }}
             >
               <input
                 className={styles.pledgeRadio}
@@ -138,11 +169,7 @@ export default function ModalSelect({
                     />
                   </div>
                   <button
-                    onClick={(e: React.MouseEvent) => {
-                      e.stopPropagation();
-                      if (formData.pledgeItem1 >= BAMBOO_MIN)
-                        setIsCompleted(true);
-                    }}
+                    type='submit'
                     className={styles.btnContinue + ' btn-bluegreen'}
                   >
                     Continue
@@ -156,6 +183,10 @@ export default function ModalSelect({
                 ' ' +
                 (formData.pledgeSelected == 2 && styles.selected)
               }
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setPledgeSelected(2);
+              }}
             >
               <input
                 className={styles.pledgeRadio}
@@ -191,11 +222,7 @@ export default function ModalSelect({
                     />
                   </div>
                   <button
-                    onClick={(e: React.MouseEvent) => {
-                      e.stopPropagation();
-                      if (formData.pledgeItem2 >= BLACK_MIN)
-                        setIsCompleted(true);
-                    }}
+                    type='submit'
                     className={styles.btnContinue + ' btn-bluegreen'}
                   >
                     Continue
@@ -203,7 +230,13 @@ export default function ModalSelect({
                 </div>
               </div>
             </div>
-            <div className={styles.pledge + ' ' + styles.disabled}>
+            <div
+              className={styles.pledge + ' ' + styles.disabled}
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setPledgeSelected(3);
+              }}
+            >
               <input
                 className={styles.pledgeRadio}
                 type='radio'
@@ -236,11 +269,7 @@ export default function ModalSelect({
                     />
                   </div>
                   <button
-                    onClick={(e: React.MouseEvent) => {
-                      e.stopPropagation();
-                      if (formData.pledgeItem3 >= MAHOGANY_MIN)
-                        setIsCompleted(true);
-                    }}
+                    type='submit'
                     className={styles.btnContinue + ' btn-bluegreen'}
                   >
                     Continue

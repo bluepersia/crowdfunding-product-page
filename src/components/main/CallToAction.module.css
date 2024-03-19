@@ -40,8 +40,19 @@
     margin-left: auto;
     cursor: pointer;
 }
+.btnBookmarkWrapper:hover .imgBookmark
+{
+    filter:brightness(120%);
+}
+
+.btnBookmarkWrapper:hover .btnBookmark {
+    background-color: rgba(0,0,0,20%);
+}
 .btnBookmark {
     display: none;
+}
+.imgBookmark {
+    transition: filter 300ms;
 }
 .imgBookmark circle{
     transition: fill 300ms;

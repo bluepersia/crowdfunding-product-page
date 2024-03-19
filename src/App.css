@@ -50,3 +50,7 @@ p {
   background-color: var(--Moderatecyan);
   color: white;
 }
+
+.btn-bluegreen:hover {
+  background-color: var(--Darkcyan);
+}
