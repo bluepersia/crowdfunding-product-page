@@ -1,8 +1,16 @@
 import styles from './Header.module.css';
 import logo from '../images/logo.svg';
 import imgMenu from '../images/icon-hamburger.svg';
+import imgClose from '../images/icon-close-menu.svg';
+import { Dispatch, SetStateAction } from 'react';
 
-export default function Header(): JSX.Element {
+export default function Header({
+  isMenuOpen,
+  setIsMenuOpen,
+}: {
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+}): JSX.Element {
   return (
     <header className={styles.header}>
       <img src={logo} className={styles.logo} />
@@ -25,7 +33,19 @@ export default function Header(): JSX.Element {
           </li>
         </ul>
       </nav>
-      <img src={imgMenu} className={styles.btnMenu + ' mobile'} />
+      {(!isMenuOpen && (
+        <img
+          onClick={() => setIsMenuOpen(true)}
+          src={imgMenu}
+          className={styles.btnMenu + ' mobile'}
+        />
+      )) || (
+        <img
+          onClick={() => setIsMenuOpen(false)}
+          src={imgClose}
+          className={styles.btnClose + ' mobile'}
+        />
+      )}
     </header>
   );
 }

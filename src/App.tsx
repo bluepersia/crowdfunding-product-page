@@ -4,10 +4,12 @@ import Header from './components/Header';
 import Main from './components/main';
 import './Post.css';
 import ModalSelect from './components/ModalSelect';
+import Menu from './components/Menu';
 
 function App() {
   const [pledgeSelector, setPledgeSelector] = useState<number>(-1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -30,14 +32,14 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <Main setPledgeSelector={setPledgeSelector} />
       <ModalSelect
         isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
         pledgeSelector={pledgeSelector}
         setIsCompleted={setIsCompleted}
       />
+      <Menu isMenuOpen={isMenuOpen} />
     </>
   );
 }
