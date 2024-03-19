@@ -1,6 +1,11 @@
+import { Dispatch, SetStateAction } from 'react';
 import styles from './Project.module.css';
 
-export default function Project(): JSX.Element {
+export default function Project({
+  setPledgeSelector,
+}: {
+  setPledgeSelector: Dispatch<SetStateAction<number>>;
+}): JSX.Element {
   return (
     <div className={styles.project}>
       <h3 className={styles.title}>About this project</h3>
@@ -34,7 +39,13 @@ export default function Project(): JSX.Element {
             <p className={styles.productCount}>
               <span>101</span> left
             </p>
-            <button className={styles.btnSelect + ' btn-bluegreen'}>
+            <button
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setPledgeSelector(1);
+              }}
+              className={styles.btnSelect + ' btn-bluegreen'}
+            >
               Select Reward
             </button>
           </div>
@@ -54,7 +65,13 @@ export default function Project(): JSX.Element {
             <p className={styles.productCount}>
               <span>64</span> left
             </p>
-            <button className={styles.btnSelect + ' btn-bluegreen'}>
+            <button
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                setPledgeSelector(2);
+              }}
+              className={styles.btnSelect + ' btn-bluegreen'}
+            >
               Select Reward
             </button>
           </div>

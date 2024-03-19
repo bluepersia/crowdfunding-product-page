@@ -1,7 +1,11 @@
 import styles from './CallToAction.module.css';
 import imgLogo from '../../images/logo-mastercraft.svg';
-import { useState } from 'react';
-export default function CallToAction(): JSX.Element {
+import { Dispatch, SetStateAction, useState } from 'react';
+export default function CallToAction({
+  setPledgeSelector,
+}: {
+  setPledgeSelector: Dispatch<SetStateAction<number>>;
+}): JSX.Element {
   const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
   return (
     <div className={styles.cta}>
@@ -11,7 +15,13 @@ export default function CallToAction(): JSX.Element {
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </p>
       <div className={styles.cta_btns}>
-        <button className={styles.btnBack + ' btn-bluegreen'}>
+        <button
+          onClick={(e: React.MouseEvent) => {
+            e.stopPropagation();
+            setPledgeSelector(0);
+          }}
+          className={styles.btnBack + ' btn-bluegreen'}
+        >
           Back this project
         </button>
         <div
@@ -28,7 +38,7 @@ export default function CallToAction(): JSX.Element {
             height='56'
             xmlns='http://www.w3.org/2000/svg'
           >
-            <g fill='none' fill-rule='evenodd'>
+            <g fill='none' fillRule='evenodd'>
               <circle fill='#2F2F2F' cx='28' cy='28' r='28' />
               <path fill='#B1B1B1' d='M23 19v18l5-5.058L33 37V19z' />
             </g>
