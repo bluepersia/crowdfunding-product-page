@@ -17,6 +17,12 @@
     transform: scale(1.2);
 }
 
+.btnClose {
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+}
+
 .navlist {
     display: flex;
     list-style: none;
